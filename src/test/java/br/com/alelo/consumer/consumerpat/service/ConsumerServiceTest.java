@@ -26,20 +26,16 @@ public class ConsumerServiceTest {
     @Mock
     private CardRepository cardRepository;
 
-    // Add tests
     @Test
     public void shouldFindAllConsumers(){
-        // Arrange
         List<Consumer> consumers = new ArrayList<>();
         consumers.add(Consumer.builder().id(1).name("Consumer 1").build());
         consumers.add(Consumer.builder().id(2).name("Consumer 2").build());
         consumers.add(Consumer.builder().id(3).name("Consumer 3").build());
         when(repository.findAll()).thenReturn(consumers);
 
-        // Act
         List<ConsumerDTO> consumersDTO = consumerService.findAll();
 
-        // Assert
         assertEquals(3, consumersDTO.size());
     }
 

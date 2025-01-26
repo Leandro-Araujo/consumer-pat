@@ -4,7 +4,6 @@ import br.com.alelo.consumer.consumerpat.entity.Card;
 import br.com.alelo.consumer.consumerpat.exception.ResourceNotFoundException;
 import br.com.alelo.consumer.consumerpat.respository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 

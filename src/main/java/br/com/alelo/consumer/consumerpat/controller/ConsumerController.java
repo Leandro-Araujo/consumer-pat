@@ -42,7 +42,7 @@ public class ConsumerController {
         service.save(consumer);
     }
 
-    // Atualizar cliente, lembrando que não deve ser possível alterar o saldo do cartão
+    // Atualizar cliente
     @ResponseStatus(HttpStatus.OK)
     @PutMapping
     public void updateConsumer(@RequestBody ConsumerDTO consumer) {

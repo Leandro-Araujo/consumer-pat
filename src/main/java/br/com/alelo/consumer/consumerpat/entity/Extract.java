@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "TB006_EXTRACT")
 public class Extract {
 
     @Id
