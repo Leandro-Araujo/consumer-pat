@@ -1,0 +1,145 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > OpenApiConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">br.com.alelo.consumer.consumerpat.config</a>
+</div>
+
+<h1>Coverage Summary for Class: OpenApiConfig (br.com.alelo.consumer.consumerpat.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OpenApiConfig</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">OpenApiConfig$$EnhancerBySpringCGLIB$$c8670c1b</td>
+  </tr>
+  <tr>
+    <td class="name">OpenApiConfig$$EnhancerBySpringCGLIB$$c8670c1b$$FastClassBySpringCGLIB$$bc10a1d0</td>
+  </tr>
+  <tr>
+    <td class="name">OpenApiConfig$$FastClassBySpringCGLIB$$da173d43</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package br.com.alelo.consumer.consumerpat.config;
+&nbsp;
+&nbsp;import io.swagger.v3.oas.models.OpenAPI;
+&nbsp;import io.swagger.v3.oas.models.info.Info;
+&nbsp;import lombok.extern.log4j.Log4j2;
+&nbsp;import org.springframework.context.annotation.Bean;
+&nbsp;import org.springframework.context.annotation.Configuration;
+&nbsp;
+<b class="fc">&nbsp;@Log4j2</b>
+&nbsp;@Configuration
+<b class="fc">&nbsp;public class OpenApiConfig {</b>
+&nbsp;
+&nbsp;    @Bean
+&nbsp;    public OpenAPI openAPI() {
+<b class="fc">&nbsp;        log.info(&quot;starting open-api/swagger...&quot;);</b>
+<b class="fc">&nbsp;        return new OpenAPI()</b>
+<b class="fc">&nbsp;            .info(getInfo());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Info getInfo() {
+<b class="fc">&nbsp;        return new Info()</b>
+<b class="fc">&nbsp;            .title(&quot;Consumer Pat&quot;)</b>
+<b class="fc">&nbsp;            .description(&quot;API docs.&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-26 16:10</div>
+</div>
+</body>
+</html>

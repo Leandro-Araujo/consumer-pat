@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Consumer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">br.com.alelo.consumer.consumerpat.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: Consumer (br.com.alelo.consumer.consumerpat.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Consumer</td>
+<td class="coverageStat">
+  <span class="percent">
+    8.3%
+  </span>
+  <span class="absValue">
+    (1/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    8.3%
+  </span>
+  <span class="absValue">
+    (1/12)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Consumer$ConsumerBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Consumer$HibernateProxy$LfKoAEJa</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    7.7%
+  </span>
+  <span class="absValue">
+    (1/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7.7%
+  </span>
+  <span class="absValue">
+    (1/13)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package br.com.alelo.consumer.consumerpat.entity;
+&nbsp;
+&nbsp;import lombok.*;
+&nbsp;
+&nbsp;import javax.persistence.*;
+&nbsp;import java.util.Date;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;
+<b class="nc">&nbsp;@Data</b>
+<b class="nc">&nbsp;@Builder</b>
+<b class="nc">&nbsp;@AllArgsConstructor</b>
+<b class="fc">&nbsp;@NoArgsConstructor</b>
+&nbsp;@Table(name = &quot;TB001_CONSUMER&quot;)
+&nbsp;@Entity
+<b class="nc">&nbsp;@EqualsAndHashCode</b>
+&nbsp;public class Consumer {
+&nbsp;
+&nbsp;    @Id
+&nbsp;    @GeneratedValue(strategy = GenerationType.AUTO)
+<b class="nc">&nbsp;    private Integer id;</b>
+&nbsp;
+<b class="nc">&nbsp;    private String name;</b>
+&nbsp;
+<b class="nc">&nbsp;    private int documentNumber;</b>
+&nbsp;
+<b class="nc">&nbsp;    private Date birthDate;</b>
+&nbsp;
+&nbsp;
+&nbsp;    @OneToOne(cascade = CascadeType.ALL)
+&nbsp;    @JoinColumn(name = &quot;CONTACT_ID&quot;)
+<b class="nc">&nbsp;    private Contact contact;</b>
+&nbsp;
+&nbsp;    @OneToOne(cascade = CascadeType.ALL)
+&nbsp;    @JoinColumn(name = &quot;ADDRESS_ID&quot;)
+<b class="nc">&nbsp;    private Address address;</b>
+&nbsp;
+&nbsp;    @OneToMany(mappedBy = &quot;consumer&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<b class="nc">&nbsp;    private List&lt;Card&gt; cards;</b>
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-26 16:10</div>
+</div>
+</body>
+</html>

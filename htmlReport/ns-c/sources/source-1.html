@@ -1,0 +1,91 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ConsumerRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">br.com.alelo.consumer.consumerpat.respository</a>
+</div>
+
+<h1>Coverage Summary for Class: ConsumerRepository (br.com.alelo.consumer.consumerpat.respository)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ConsumerRepository</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package br.com.alelo.consumer.consumerpat.respository;
+&nbsp;
+&nbsp;import br.com.alelo.consumer.consumerpat.entity.Consumer;
+&nbsp;import br.com.alelo.consumer.consumerpat.enums.CardType;
+&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+&nbsp;import org.springframework.data.jpa.repository.Query;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;public interface ConsumerRepository extends JpaRepository&lt;Consumer, Integer&gt; {
+&nbsp;
+&nbsp;    Optional&lt;Consumer&gt; findByCards_CardNumberAndCards_CardType(int CardNumber, CardType cardType);
+&nbsp;
+&nbsp;    @Query(nativeQuery = true, value = &quot;select * from TB001_CONSUMER where FOOD_CARD_NUMBER = ? &quot;)
+&nbsp;    Consumer findByFoodCardNumber(int cardNumber);
+&nbsp;
+&nbsp;    @Query(nativeQuery = true, value = &quot;select * from TB001_CONSUMER where FUEL_CARD_NUMBER = ? &quot;)
+&nbsp;    Consumer findByFuelCardNumber(int cardNumber);
+&nbsp;
+&nbsp;    @Query(nativeQuery = true, value = &quot;select * from TB001_CONSUMER where DRUGSTORE_NUMBER = ? &quot;)
+&nbsp;    Consumer findByDrugstoreNumber(int cardNumber);
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-26 16:10</div>
+</div>
+</body>
+</html>

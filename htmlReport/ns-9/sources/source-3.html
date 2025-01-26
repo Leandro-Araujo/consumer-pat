@@ -1,0 +1,163 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ExtractService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">br.com.alelo.consumer.consumerpat.service</a>
+</div>
+
+<h1>Coverage Summary for Class: ExtractService (br.com.alelo.consumer.consumerpat.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExtractService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    63.6%
+  </span>
+  <span class="absValue">
+    (7/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package br.com.alelo.consumer.consumerpat.service;
+&nbsp;
+&nbsp;import br.com.alelo.consumer.consumerpat.dto.request.PurchaseRequestDTO;
+&nbsp;import br.com.alelo.consumer.consumerpat.dto.response.consumer.ExtractResponseDTO;
+&nbsp;import br.com.alelo.consumer.consumerpat.entity.Extract;
+&nbsp;import br.com.alelo.consumer.consumerpat.enums.CardType;
+&nbsp;import br.com.alelo.consumer.consumerpat.respository.ExtractRepository;
+&nbsp;import br.com.alelo.consumer.consumerpat.service.extract.ExtractDrugStoreStrategy;
+&nbsp;import br.com.alelo.consumer.consumerpat.service.extract.ExtractFoodStrategy;
+&nbsp;import br.com.alelo.consumer.consumerpat.service.extract.ExtractFuelServiceStrategy;
+&nbsp;import br.com.alelo.consumer.consumerpat.service.extract.StrategyExtract;
+&nbsp;import br.com.alelo.consumer.consumerpat.util.mapping.ExtractDTOMapping;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Component;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;@Component
+&nbsp;public class ExtractService {
+&nbsp;    private Map&lt;CardType, StrategyExtract&gt; strategies;
+&nbsp;
+&nbsp;
+&nbsp;    final private ExtractFoodStrategy extractFoodStrategy;
+&nbsp;    final private ExtractDrugStoreStrategy extractDrugStoreStrategy;
+&nbsp;    final private ExtractFuelServiceStrategy extractFuelServiceStrategy;
+&nbsp;    private final ExtractRepository extractRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    public ExtractService(ExtractFoodStrategy extractFoodStrategy,
+&nbsp;                          ExtractDrugStoreStrategy extractDrugStoreStrategy,
+&nbsp;                          ExtractFuelServiceStrategy extractFuelServiceStrategy,
+<b class="fc">&nbsp;                          ExtractRepository extractRepository){</b>
+<b class="fc">&nbsp;        this.extractFoodStrategy = extractFoodStrategy;</b>
+<b class="fc">&nbsp;        this.extractDrugStoreStrategy = extractDrugStoreStrategy;</b>
+<b class="fc">&nbsp;        this.extractFuelServiceStrategy = extractFuelServiceStrategy;</b>
+&nbsp;
+<b class="fc">&nbsp;        this.setStrategies();</b>
+<b class="fc">&nbsp;        this.extractRepository = extractRepository;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void setStrategies(){
+<b class="fc">&nbsp;        strategies = Map.of(</b>
+&nbsp;                CardType.FOOD, extractFoodStrategy,
+&nbsp;                CardType.DRUGSTORE, extractDrugStoreStrategy,
+&nbsp;                CardType.FUEL, extractFuelServiceStrategy
+&nbsp;        );
+&nbsp;    }
+&nbsp;
+&nbsp;    public void buy(PurchaseRequestDTO purchase){
+<b class="nc">&nbsp;        StrategyExtract strategy = strategies.get(CardType.fromCode(purchase.getEstablishmentType()));</b>
+&nbsp;
+<b class="nc">&nbsp;        strategy.buy(purchase);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;ExtractResponseDTO&gt; getExtractByCardNumber(int cardNumber) {
+<b class="nc">&nbsp;        List&lt;Extract&gt; extracts = extractRepository.findByCardCardNumber(cardNumber);</b>
+&nbsp;
+<b class="nc">&nbsp;        return ExtractDTOMapping.mapToDTO(extracts);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-26 16:10</div>
+</div>
+</body>
+</html>
